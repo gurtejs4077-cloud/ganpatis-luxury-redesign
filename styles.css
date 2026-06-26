@@ -233,24 +233,24 @@ body:has(button:hover) .cursor-follower {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    z-index: 0;
+    z-index: 1;
     transform: scale(1.06);
-    transition: transform 3s var(--ease-out), opacity 0.8s ease;
-    opacity: 0;
+    transition: transform 3s var(--ease-out);
+    opacity: 1;
 }
 .hero.loaded .hero-video {
     transform: scale(1);
-    opacity: 1;
 }
 .hero-img {
     position: absolute;
     inset: 0;
     object-position: center top;
     transform: scale(1.06);
-    transition: transform 3s var(--ease-out), opacity 0.8s ease;
+    transition: transform 3s var(--ease-out), opacity 1s ease;
     z-index: 0;
+    opacity: 1;
 }
-.hero-img-fallback { z-index: 0; }
+.hero-img-fallback { z-index: 0; opacity: 1; transition: opacity 1.2s ease; }
 .hero.video-ready .hero-img-fallback { opacity: 0; pointer-events: none; }
 .hero.loaded .hero-img { transform: scale(1); }
 
@@ -259,7 +259,7 @@ body:has(button:hover) .cursor-follower {
     position: absolute;
     bottom: 12rem;
     right: 3rem;
-    z-index: 2;
+    z-index: 4;
     background: rgba(14,12,10,0.5);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255,255,255,0.2);
@@ -281,6 +281,7 @@ body:has(button:hover) .cursor-follower {
 .hero-vignette {
     position: absolute;
     inset: 0;
+    z-index: 2;
     background: linear-gradient(
         to bottom,
         rgba(0,0,0,0.1) 0%,
@@ -290,7 +291,7 @@ body:has(button:hover) .cursor-follower {
 }
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     text-align: center;
     padding-top: 8vh;
 }
@@ -359,7 +360,7 @@ body:has(button:hover) .cursor-follower {
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
-    z-index: 1;
+    z-index: 3;
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -377,7 +378,7 @@ body:has(button:hover) .cursor-follower {
 .hero-stat-strip {
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    z-index: 1;
+    z-index: 3;
     background: rgba(14,12,10,0.7);
     backdrop-filter: blur(10px);
     display: flex;
