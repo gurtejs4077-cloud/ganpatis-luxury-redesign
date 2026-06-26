@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ——— LOADER ———
     const loader       = document.getElementById('loader');
     const progress     = document.getElementById('loader-progress');
+    const heroVideo    = document.getElementById('hero-video');
+    const heroSection  = document.querySelector('.hero');
     let loadProgress   = 0;
 
     const progressTimer = setInterval(() => {
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(progressTimer);
             setTimeout(() => {
                 loader.classList.add('hidden');
-                document.querySelector('.hero').classList.add('loaded');
+                heroSection.classList.add('loaded');
                 // Trigger initial animations
                 document.querySelectorAll('.hero .reveal-up').forEach((el, i) => {
                     setTimeout(() => el.classList.add('active'), 400 + i * 160);
@@ -25,6 +27,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         progress.style.width = loadProgress + '%';
     }, 100);
+
+    // ——— VIDEO READINESS — crossfade from poster to video ———
+    if (heroVideo) {
+        const onVideoReady = () => heroSection.classList.add('video-ready');
+        if (heroVideo.readyState >= 3) {
+            onVideoReady();
+        } else {
+            heroVideo.addEventListener('canplaythrough', onVideoReady, { once: true });
+        }
+    }
+
+    // ——— MUTE TOGGLE ———
+    const muteBtn = document.getElementById('mute-btn');
+    if (muteBtn && heroVideo) {
+        muteBtn.addEventListener('click', () => {
+            heroVideo.muted = !heroVideo.muted;
+            muteBtn.textContent = heroVideo.muted ? '🔇' : '🔊';
+        });
+    }
 
     // ——— CUSTOM CURSOR ———
     const cursor   = document.getElementById('cursor');
@@ -85,12 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!el.closest('.hero')) revealObs.observe(el);
     });
 
-    // ——— HERO PARALLAX ———
-    const heroImg = document.getElementById('hero-img');
+    // ——— HERO PARALLAX (targets video) ———
+    const heroEl = document.getElementById('hero-video') || document.getElementById('hero-img');
     window.addEventListener('scroll', () => {
         const scrolled = window.scrollY;
-        if (heroImg && scrolled < window.innerHeight) {
-            heroImg.style.transform = `scale(1) translateY(${scrolled * 0.3}px)`;
+        if (heroEl && scrolled < window.innerHeight) {
+            heroEl.style.transform = `scale(1) translateY(${scrolled * 0.25}px)`;
         }
     });
 
