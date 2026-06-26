@@ -311,8 +311,9 @@ body:has(button:hover) .cursor-follower {
     margin-bottom: 3rem;
     letter-spacing: -0.01em;
 }
-.hero-title span { display: block; }
+.hero-title > span { display: block; }
 .hero-title em {
+    display: block;
     font-style: italic;
     color: var(--c-gold-lt);
     font-weight: 300;
