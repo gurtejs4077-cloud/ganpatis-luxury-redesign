@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GANPATIS — Luxury Bridal Couture</title>
+    <meta name="description" content="Ganpatis — India's most celebrated luxury bridal couture house. Discover our handcrafted lehengas, sarees, and exquisite jewellery.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <p class="loader-brand">GANPATIS</p>
+            <div class="loader-line"><div class="loader-progress" id="loader-progress"></div></div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <a href="#" class="nav-link">Collections</a>
+            <a href="#" class="nav-link">Lookbook</a>
+        </div>
+        <div class="nav-center">
+            <a href="#" class="logo">GANPATIS</a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="nav-link">Boutique</a>
+            <a href="#" class="nav-link nav-cta">Book Appointment</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#">Collections</a>
+        <a href="#">Bridal</a>
+        <a href="#">Jewellery</a>
+        <a href="#">Lookbook</a>
+        <a href="#">Boutique</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="assets/hero_editorial.png" alt="Ganpatis Luxury Bridal" class="hero-img" id="hero-img">
+            <div class="hero-vignette"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-tag reveal-up">SS 2026 Collection</div>
+            <h1 class="hero-title">
+                <span class="reveal-up d1">The Art of</span>
+                <em class="reveal-up d2">the Bride</em>
+            </h1>
+            <div class="hero-actions reveal-up d3">
+                <a href="#collections" class="btn-primary">Explore Now</a>
+                <a href="#" class="btn-ghost">Our Story</a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+        <div class="hero-stat-strip">
+            <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Years of Legacy</span></div>
+            <div class="stat-sep"></div>
+            <div class="stat"><span class="stat-num">5000+</span><span class="stat-label">Brides Dressed</span></div>
+            <div class="stat-sep"></div>
+            <div class="stat"><span class="stat-num">3</span><span class="stat-label">Flagship Boutiques</span></div>
+        </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span>Exquisite Bridal Couture</span>
+            <span>✦</span>
+            <span>Handcrafted Jewellery</span>
+            <span>✦</span>
+            <span>Bespoke Lehengas</span>
+            <span>✦</span>
+            <span>Timeless Heritage</span>
+            <span>✦</span>
+            <span>Zardozi Embroidery</span>
+            <span>✦</span>
+            <span>Kundan & Polki</span>
+            <span>✦</span>
+            <span>Exquisite Bridal Couture</span>
+            <span>✦</span>
+            <span>Handcrafted Jewellery</span>
+            <span>✦</span>
+            <span>Bespoke Lehengas</span>
+            <span>✦</span>
+            <span>Timeless Heritage</span>
+            <span>✦</span>
+            <span>Zardozi Embroidery</span>
+            <span>✦</span>
+            <span>Kundan & Polki</span>
+            <span>✦</span>
+        </div>
+    </div>
+
+    <!-- EDITORIAL INTRO -->
+    <section class="editorial-intro" id="about">
+        <div class="editorial-text reveal-up">
+            <p class="overline">Est. 2012 — Chandigarh, India</p>
+            <h2>Where Tradition<br><em>Meets Artistry</em></h2>
+        </div>
+        <div class="editorial-body reveal-up d1">
+            <p>Ganpatis is not just a brand — it is a feeling. Each silhouette is a conversation between the artisan's hands and centuries of Indian textile wisdom. We craft for the bride who understands that true luxury is in the details invisible to most, yet felt by all.</p>
+            <a href="#" class="link-arrow">Read our story <span class="arrow">→</span></a>
+        </div>
+        <div class="editorial-img-wrap reveal-up d2">
+            <img src="assets/lookbook_detail.png" alt="Intricate Embroidery Detail">
+        </div>
+    </section>
+
+    <!-- COLLECTIONS -->
+    <section class="collections-section" id="collections">
+        <div class="section-header reveal-up">
+            <p class="overline">Curated for you</p>
+            <h2>The Collections</h2>
+        </div>
+        <div class="collections-grid">
+            <!-- Col 1 - tall -->
+            <a href="#" class="col-item col-tall reveal-up">
+                <div class="col-img-wrap">
+                    <img src="https://ganpatis.in/cdn/shop/files/39_2.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=185&crop_width=1290&v=1782479377&width=900" alt="Bridal Lehenga">
+                    <div class="col-overlay">
+                        <span>Shop Now →</span>
+                    </div>
+                </div>
+                <div class="col-info">
+                    <h3>Bridal Lehengas</h3>
+                    <p>132 Looks</p>
+                </div>
+            </a>
+            <!-- Col 2 - stacked -->
+            <div class="col-stack">
+                <a href="#" class="col-item reveal-up d1">
+                    <div class="col-img-wrap">
+                        <img src="https://ganpatis.in/cdn/shop/files/IMG_1502_JPG.jpg?crop=region&crop_height=2400&crop_left=92&crop_top=0&crop_width=1608&v=1782477518&width=900" alt="Sarees">
+                        <div class="col-overlay"><span>Shop Now →</span></div>
+                    </div>
+                    <div class="col-info">
+                        <h3>Bridal Sarees</h3>
+                        <p>89 Looks</p>
+                    </div>
+                </a>
+                <a href="#" class="col-item reveal-up d2">
+                    <div class="col-img-wrap">
+                        <img src="https://ganpatis.in/cdn/shop/files/GoStudio_8842.jpg?crop=region&crop_height=4002&crop_left=229&crop_top=0&crop_width=2681&v=1777967177&width=900" alt="Jewellery">
+                        <div class="col-overlay"><span>Shop Now →</span></div>
+                    </div>
+                    <div class="col-info">
+                        <h3>Fine Jewellery</h3>
+                        <p>64 Pieces</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Col 3 - offset tall -->
+            <a href="#" class="col-item col-tall col-offset reveal-up d1">
+                <div class="col-img-wrap">
+                    <img src="https://ganpatis.in/cdn/shop/files/DSC08765.jpg?crop=region&crop_height=3425&crop_left=0&crop_top=8&crop_width=2295&v=1779202365&width=900" alt="Anarkali">
+                    <div class="col-overlay"><span>Shop Now →</span></div>
+                </div>
+                <div class="col-info">
+                    <h3>Anarkali & Gowns</h3>
+                    <p>47 Looks</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- FEATURED EDITORIAL STRIP -->
+    <section class="editorial-strip">
+        <div class="strip-content reveal-up">
+            <p class="overline">Featured in Vogue India, Harper's Bazaar</p>
+            <h2>The Royal <em>Bridal</em> Edit</h2>
+            <a href="#" class="btn-primary btn-dark">Explore the Edit</a>
+        </div>
+        <div class="strip-img reveal-up d1">
+            <img src="assets/editorial_split.png" alt="Royal Bridal Edit">
+        </div>
+    </section>
+
+    <!-- NEW ARRIVALS -->
+    <section class="arrivals-section" id="new-arrivals">
+        <div class="section-header reveal-up">
+            <p class="overline">Just dropped</p>
+            <h2>New Arrivals</h2>
+            <a href="#" class="see-all">See All →</a>
+        </div>
+        <div class="arrivals-grid">
+            <div class="product-card reveal-up">
+                <div class="product-img-wrap">
+                    <img src="https://ganpatis.in/cdn/shop/files/38_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=310&crop_width=1290&v=1782291741&width=720" alt="Product 1">
+                    <button class="quick-add">Quick View</button>
+                    <div class="product-badge">New</div>
+                </div>
+                <div class="product-info">
+                    <h4>Amaira Lehenga</h4>
+                    <div class="price-row">
+                        <span class="price">₹ 85,000</span>
+                        <span class="swatches"><span class="sw s1"></span><span class="sw s2"></span><span class="sw s3"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal-up d1">
+                <div class="product-img-wrap">
+                    <img src="https://ganpatis.in/cdn/shop/files/37_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=308&crop_width=1290&v=1782291335&width=720" alt="Product 2">
+                    <button class="quick-add">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h4>Zara Anarkali</h4>
+                    <div class="price-row">
+                        <span class="price">₹ 52,000</span>
+                        <span class="swatches"><span class="sw s2"></span><span class="sw s4"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal-up d2">
+                <div class="product-img-wrap">
+                    <img src="https://ganpatis.in/cdn/shop/files/36_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=310&crop_width=1290&v=1782283131&width=720" alt="Product 3">
+                    <button class="quick-add">Quick View</button>
+                    <div class="product-badge">Bestseller</div>
+                </div>
+                <div class="product-info">
+                    <h4>Ruhaani Silk Lehenga</h4>
+                    <div class="price-row">
+                        <span class="price">₹ 72,000</span>
+                        <span class="swatches"><span class="sw s1"></span><span class="sw s3"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal-up d3">
+                <div class="product-img-wrap">
+                    <img src="https://ganpatis.in/cdn/shop/files/35_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=309&crop_width=1290&v=1782281093&width=720" alt="Product 4">
+                    <button class="quick-add">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h4>Noor Organza Saree</h4>
+                    <div class="price-row">
+                        <span class="price">₹ 38,000</span>
+                        <span class="swatches"><span class="sw s4"></span><span class="sw s2"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL BLEED CAMPAIGN -->
+    <section class="campaign-section reveal-up">
+        <div class="campaign-img-wrap">
+            <img src="https://ganpatis.in/cdn/shop/files/Premium_collection.png?v=1779277873&width=2880" alt="Campaign">
+        </div>
+        <div class="campaign-text">
+            <p class="overline">2026 Wedding Season</p>
+            <h2>The Grandeur <em>Collection</em></h2>
+            <a href="#" class="btn-primary">Shop the Campaign</a>
+        </div>
+    </section>
+
+    <!-- LOOKBOOK -->
+    <section class="lookbook-section" id="lookbook">
+        <div class="section-header reveal-up">
+            <p class="overline">Summer 2026</p>
+            <h2>Lookbook</h2>
+        </div>
+        <div class="lookbook-masonry">
+            <div class="lk-item lk-tall reveal-up">
+                <img src="https://ganpatis.in/cdn/shop/files/31_1.jpg?crop=region&crop_height=2400&crop_left=92&crop_top=0&crop_width=1608&v=1781867654&width=720" alt="Look 1">
+                <div class="lk-label">Look 01</div>
+            </div>
+            <div class="lk-item reveal-up d1">
+                <img src="https://ganpatis.in/cdn/shop/files/33_1.jpg?crop=region&crop_height=2400&crop_left=92&crop_top=0&crop_width=1608&v=1781946085&width=720" alt="Look 2">
+                <div class="lk-label">Look 02</div>
+            </div>
+            <div class="lk-item reveal-up d2">
+                <img src="https://ganpatis.in/cdn/shop/files/32_1.jpg?crop=region&crop_height=2400&crop_left=92&crop_top=0&crop_width=1608&v=1781868577&width=720" alt="Look 3">
+                <div class="lk-label">Look 03</div>
+            </div>
+            <div class="lk-item lk-wide reveal-up d1">
+                <img src="https://ganpatis.in/cdn/shop/files/Ganpati_s_53.png?v=1779276161&width=1200" alt="Look 4">
+                <div class="lk-label">Look 04</div>
+            </div>
+            <div class="lk-item reveal-up d3">
+                <img src="https://ganpatis.in/cdn/shop/files/34_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=307&crop_width=1290&v=1782280794&width=720" alt="Look 5">
+                <div class="lk-label">Look 05</div>
+            </div>
+        </div>
+        <div class="lookbook-cta reveal-up">
+            <a href="#" class="btn-primary btn-dark">View Full Lookbook</a>
+        </div>
+    </section>
+
+    <!-- JEWELLERY HIGHLIGHT -->
+    <section class="jewellery-section">
+        <div class="jewellery-left reveal-up">
+            <img src="assets/jewelry_closeup.png" alt="Heritage Jewellery">
+        </div>
+        <div class="jewellery-right">
+            <div class="jewellery-text reveal-up">
+                <p class="overline">Heritage Line</p>
+                <h2>Jewellery that tells <em>a Story</em></h2>
+                <p>Our Heritage Jewellery line is a tribute to India's most revered craft traditions. Each Kundan and Polki piece is set by hand by master craftsmen, taking upwards of 200 hours per set to complete.</p>
+                <a href="#" class="btn-primary btn-dark">Discover Jewellery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section">
+        <div class="section-header reveal-up">
+            <p class="overline">Bride Stories</p>
+            <h2>Words from our Brides</h2>
+        </div>
+        <div class="testimonials-track">
+            <div class="testimonial-card reveal-up">
+                <div class="stars">★★★★★</div>
+                <p class="testi-text">"My Ganpatis lehenga was not just a dress. It was an emotion. Every guest couldn't stop talking about the embroidery. I have never felt more regal in my life."</p>
+                <div class="testi-bride">
+                    <div class="testi-avatar">P</div>
+                    <div>
+                        <h5>Priya Malhotra</h5>
+                        <span>Bride, Delhi — 2025</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal-up d1">
+                <div class="stars">★★★★★</div>
+                <p class="testi-text">"The craftsmanship is unlike anything I have ever seen. My Ganpatis saree from the Heritage line will be passed down for generations. Truly once in a lifetime."</p>
+                <div class="testi-bride">
+                    <div class="testi-avatar">A</div>
+                    <div>
+                        <h5>Ananya Sharma</h5>
+                        <span>Bride, Mumbai — 2025</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal-up d2">
+                <div class="stars">★★★★★</div>
+                <p class="testi-text">"From the first appointment to my wedding day, the Ganpatis team made me feel like royalty. My bridal look was absolutely perfect — beyond my wildest dreams."</p>
+                <div class="testi-bride">
+                    <div class="testi-avatar">R</div>
+                    <div>
+                        <h5>Riya Kapoor</h5>
+                        <span>Bride, Chandigarh — 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section reveal-up">
+        <div class="cta-inner">
+            <p class="overline">Your Dream Bridal Look Awaits</p>
+            <h2>Begin Your <em>Bridal</em> Journey</h2>
+            <p>Visit one of our boutiques for a personal styling appointment with our master designers.</p>
+            <a href="#" class="btn-primary">Book a Private Appointment</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <p class="footer-logo">GANPATIS</p>
+                <p class="footer-tagline">Luxury Bridal Couture Since 2012</p>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h6>Collections</h6>
+                    <a href="#">Bridal Lehengas</a>
+                    <a href="#">Bridal Sarees</a>
+                    <a href="#">Anarkali & Gowns</a>
+                    <a href="#">Fine Jewellery</a>
+                </div>
+                <div class="footer-col">
+                    <h6>Explore</h6>
+                    <a href="#">Lookbook</a>
+                    <a href="#">Our Story</a>
+                    <a href="#">Brides of Ganpatis</a>
+                    <a href="#">Press</a>
+                </div>
+                <div class="footer-col">
+                    <h6>Help</h6>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Shipping & Returns</a>
+                    <a href="#">Care Guide</a>
+                    <a href="#">Book Appointment</a>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h6>Stay in the world of Ganpatis</h6>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address" id="newsletter-email">
+                    <button>→</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Ganpatis Luxury Bridal. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
