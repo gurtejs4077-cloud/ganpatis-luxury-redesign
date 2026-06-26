@@ -174,7 +174,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const hscrollTrack = document.getElementById('hscroll-track');
     if (hscrollWrap && hscrollTrack) {
         let isDragging = false;
+        let isHovered = false;
         let startX, scrollLeft;
+        let autoScrollSpeed = 0.8; 
+        
+        // Auto scroll loop
+        function autoScroll() {
+            if (!isDragging && !isHovered) {
+                hscrollWrap.scrollLeft += autoScrollSpeed;
+                // If reached the end, loop back or reset
+                if (hscrollWrap.scrollLeft >= (hscrollWrap.scrollWidth - hscrollWrap.clientWidth - 1)) {
+                    // Reset to beginning for infinite feel (or you can reverse)
+                    hscrollWrap.scrollLeft = 0;
+                }
+            }
+            requestAnimationFrame(autoScroll);
+        }
+        requestAnimationFrame(autoScroll);
 
         hscrollWrap.addEventListener('mousedown', (e) => {
             isDragging = true;
@@ -183,7 +199,11 @@ document.addEventListener('DOMContentLoaded', () => {
             hscrollWrap.style.cursor = 'grabbing';
             lenis.stop(); // pause smooth scroll while dragging
         });
+        hscrollWrap.addEventListener('mouseenter', () => {
+            isHovered = true;
+        });
         hscrollWrap.addEventListener('mouseleave', () => {
+            isHovered = false;
             if (isDragging) { isDragging = false; lenis.start(); }
             hscrollWrap.style.cursor = 'grab';
         });
@@ -202,28 +222,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Touch support
         hscrollWrap.addEventListener('touchstart', (e) => {
+            isHovered = true;
             startX = e.touches[0].pageX;
             scrollLeft = hscrollWrap.scrollLeft;
         }, { passive: true });
+        hscrollWrap.addEventListener('touchend', () => {
+            isHovered = false;
+        });
         hscrollWrap.addEventListener('touchmove', (e) => {
             const x = e.touches[0].pageX;
             hscrollWrap.scrollLeft = scrollLeft - (x - startX);
         }, { passive: true });
-
-        // Auto-scroll hint animation on section enter
-        const hintObs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Nudge scroll to hint at scrollability
-                    setTimeout(() => {
-                        hscrollWrap.scrollTo({ left: 80, behavior: 'smooth' });
-                        setTimeout(() => hscrollWrap.scrollTo({ left: 0, behavior: 'smooth' }), 600);
-                    }, 500);
-                    hintObs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        hintObs.observe(hscrollWrap);
     }
 
     // ——— PRODUCT CARD MAGNETIC HOVER ———
