@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Lenis smooth scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 </head>
 <body>
 
@@ -64,8 +66,8 @@
         <div class="hero-content">
             <div class="hero-tag reveal-up">SS 2026 Collection</div>
             <h1 class="hero-title">
-                <span class="reveal-up d1">The Art of</span>
-                <em class="reveal-up d2">the Bride</em>
+                <span class="split-word reveal-up d1">The Art of</span>
+                <em class="split-word reveal-up d2">the Bride</em>
             </h1>
             <div class="hero-actions reveal-up d3">
                 <a href="#collections" class="btn-primary">Explore Now</a>
@@ -200,68 +202,106 @@
         </div>
     </section>
 
-    <!-- NEW ARRIVALS -->
+    <!-- NEW ARRIVALS — Horizontal Scroll -->
     <section class="arrivals-section" id="new-arrivals">
         <div class="section-header reveal-up">
             <p class="overline">Just dropped</p>
-            <h2>New Arrivals</h2>
+            <h2 class="split-text">New Arrivals</h2>
             <a href="#" class="see-all">See All →</a>
         </div>
-        <div class="arrivals-grid">
-            <div class="product-card reveal-up">
-                <div class="product-img-wrap">
-                    <img src="https://ganpatis.in/cdn/shop/files/38_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=310&crop_width=1290&v=1782291741&width=720" alt="Product 1">
-                    <button class="quick-add">Quick View</button>
-                    <div class="product-badge">New</div>
-                </div>
-                <div class="product-info">
-                    <h4>Amaira Lehenga</h4>
-                    <div class="price-row">
-                        <span class="price">₹ 85,000</span>
-                        <span class="swatches"><span class="sw s1"></span><span class="sw s2"></span><span class="sw s3"></span></span>
+        <!-- Horizontal scroll track -->
+        <div class="hscroll-wrap">
+            <div class="hscroll-track" id="hscroll-track">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <img src="https://ganpatis.in/cdn/shop/files/38_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=310&crop_width=1290&v=1782291741&width=720" alt="Amaira Lehenga">
+                        <button class="quick-add">Quick View</button>
+                        <div class="product-badge">New</div>
+                    </div>
+                    <div class="product-info">
+                        <h4>Amaira Lehenga</h4>
+                        <div class="price-row"><span class="price">₹ 85,000</span><span class="swatches"><span class="sw s1"></span><span class="sw s2"></span><span class="sw s3"></span></span></div>
                     </div>
                 </div>
-            </div>
-            <div class="product-card reveal-up d1">
-                <div class="product-img-wrap">
-                    <img src="https://ganpatis.in/cdn/shop/files/37_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=308&crop_width=1290&v=1782291335&width=720" alt="Product 2">
-                    <button class="quick-add">Quick View</button>
-                </div>
-                <div class="product-info">
-                    <h4>Zara Anarkali</h4>
-                    <div class="price-row">
-                        <span class="price">₹ 52,000</span>
-                        <span class="swatches"><span class="sw s2"></span><span class="sw s4"></span></span>
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <img src="https://ganpatis.in/cdn/shop/files/37_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=308&crop_width=1290&v=1782291335&width=720" alt="Zara Anarkali">
+                        <button class="quick-add">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h4>Zara Anarkali</h4>
+                        <div class="price-row"><span class="price">₹ 52,000</span><span class="swatches"><span class="sw s2"></span><span class="sw s4"></span></span></div>
                     </div>
                 </div>
-            </div>
-            <div class="product-card reveal-up d2">
-                <div class="product-img-wrap">
-                    <img src="https://ganpatis.in/cdn/shop/files/36_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=310&crop_width=1290&v=1782283131&width=720" alt="Product 3">
-                    <button class="quick-add">Quick View</button>
-                    <div class="product-badge">Bestseller</div>
-                </div>
-                <div class="product-info">
-                    <h4>Ruhaani Silk Lehenga</h4>
-                    <div class="price-row">
-                        <span class="price">₹ 72,000</span>
-                        <span class="swatches"><span class="sw s1"></span><span class="sw s3"></span></span>
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <img src="https://ganpatis.in/cdn/shop/files/36_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=310&crop_width=1290&v=1782283131&width=720" alt="Ruhaani Silk Lehenga">
+                        <button class="quick-add">Quick View</button>
+                        <div class="product-badge">Bestseller</div>
+                    </div>
+                    <div class="product-info">
+                        <h4>Ruhaani Silk Lehenga</h4>
+                        <div class="price-row"><span class="price">₹ 72,000</span><span class="swatches"><span class="sw s1"></span><span class="sw s3"></span></span></div>
                     </div>
                 </div>
-            </div>
-            <div class="product-card reveal-up d3">
-                <div class="product-img-wrap">
-                    <img src="https://ganpatis.in/cdn/shop/files/35_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=309&crop_width=1290&v=1782281093&width=720" alt="Product 4">
-                    <button class="quick-add">Quick View</button>
-                </div>
-                <div class="product-info">
-                    <h4>Noor Organza Saree</h4>
-                    <div class="price-row">
-                        <span class="price">₹ 38,000</span>
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <img src="https://ganpatis.in/cdn/shop/files/35_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=309&crop_width=1290&v=1782281093&width=720" alt="Noor Organza Saree">
+                        <button class="quick-add">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h4>Noor Organza Saree</h4>
+                        <div class="price-row"><span class="price">₹ 38,000</span>
                         <span class="swatches"><span class="sw s4"></span><span class="sw s2"></span></span>
                     </div>
                 </div>
             </div>
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://ganpatis.in/cdn/shop/files/34_1.jpg?crop=region&crop_height=1925&crop_left=0&crop_top=307&crop_width=1290&v=1782280794&width=720" alt="Riya Saree">
+                    <button class="quick-add">Quick View</button>
+                    <div class="product-badge">New</div>
+                </div>
+                <div class="product-info">
+                    <h4>Riya Zari Saree</h4>
+                    <div class="price-row"><span class="price">₹ 58,000</span><span class="swatches"><span class="sw s1"></span><span class="sw s3"></span></span></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://ganpatis.in/cdn/shop/files/33_1.jpg?crop=region&crop_height=2400&crop_left=92&crop_top=0&crop_width=1608&v=1781946085&width=720" alt="Priya Lehenga">
+                    <button class="quick-add">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h4>Priya Bridal Set</h4>
+                    <div class="price-row"><span class="price">₹ 96,000</span><span class="swatches"><span class="sw s2"></span><span class="sw s4"></span></span></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://ganpatis.in/cdn/shop/files/32_1.jpg?crop=region&crop_height=2400&crop_left=92&crop_top=0&crop_width=1608&v=1781868577&width=720" alt="Meera Anarkali">
+                    <button class="quick-add">Quick View</button>
+                    <div class="product-badge">Limited</div>
+                </div>
+                <div class="product-info">
+                    <h4>Meera Chanderi</h4>
+                    <div class="price-row"><span class="price">₹ 44,000</span><span class="swatches"><span class="sw s3"></span></span></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://ganpatis.in/cdn/shop/files/31_1.jpg?crop=region&crop_height=2400&crop_left=92&crop_top=0&crop_width=1608&v=1781867654&width=720" alt="Kavya Lehenga">
+                    <button class="quick-add">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h4>Kavya Velvet Lehenga</h4>
+                    <div class="price-row"><span class="price">₹ 1,10,000</span><span class="swatches"><span class="sw s1"></span><span class="sw s4"></span></span></div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="hscroll-hint">
+            <span class="hscroll-drag">← Drag to Explore →</span>
         </div>
     </section>
 

@@ -4,6 +4,44 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ——— LENIS SMOOTH SCROLL ———
+    const lenis = new Lenis({
+        lerp: 0.07,
+        smoothWheel: true,
+        syncTouch: false,
+    });
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // ——— WORD SPLIT REVEAL ———
+    function splitAndReveal(selector) {
+        document.querySelectorAll(selector).forEach(el => {
+            const text = el.textContent;
+            const words = text.trim().split(/\s+/);
+            el.innerHTML = words.map(w =>
+                `<span class="word"><span class="word-inner">${w}</span></span>`
+            ).join(' ');
+        });
+    }
+    splitAndReveal('.split-text');
+    splitAndReveal('.split-word');
+
+    // Observe split-text elements for reveal
+    const splitObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                splitObs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.split-text, .split-word').forEach(el => {
+        if (!el.closest('.hero')) splitObs.observe(el);
+    });
+
     // ——— LOADER ———
     const loader       = document.getElementById('loader');
     const progress     = document.getElementById('loader-progress');
@@ -19,9 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 loader.classList.add('hidden');
                 heroSection.classList.add('loaded');
-                // Trigger initial animations
+                // Trigger hero text animations
                 document.querySelectorAll('.hero .reveal-up').forEach((el, i) => {
-                    setTimeout(() => el.classList.add('active'), 400 + i * 160);
+                    setTimeout(() => {
+                        el.classList.add('active');
+                        // For split-word in hero
+                        if (el.classList.contains('split-word')) el.classList.add('active');
+                    }, 400 + i * 160);
                 });
             }, 400);
         }
@@ -71,8 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ——— NAVBAR ———
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 60) {
+    lenis.on('scroll', ({ scroll }) => {
+        if (scroll > 60) {
             navbar.classList.add('scrolled');
             navbar.classList.remove('dark-mode');
         } else {
@@ -102,16 +144,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
     revealEls.forEach(el => {
-        // Skip hero elements (handled by loader)
         if (!el.closest('.hero')) revealObs.observe(el);
     });
 
     // ——— HERO PARALLAX (targets video) ———
     const heroEl = document.getElementById('hero-video') || document.getElementById('hero-img');
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        if (heroEl && scrolled < window.innerHeight) {
-            heroEl.style.transform = `scale(1) translateY(${scrolled * 0.25}px)`;
+    lenis.on('scroll', ({ scroll }) => {
+        if (heroEl && scroll < window.innerHeight) {
+            heroEl.style.transform = `scale(1) translateY(${scroll * 0.25}px)`;
         }
     });
 
@@ -122,16 +162,69 @@ document.addEventListener('DOMContentLoaded', () => {
             if (target) {
                 e.preventDefault();
                 const offset = document.getElementById('navbar').offsetHeight;
-                window.scrollTo({
-                    top: target.offsetTop - offset,
-                    behavior: 'smooth'
-                });
-                // Close mobile menu if open
+                lenis.scrollTo(target, { offset: -offset, duration: 1.6 });
                 mobileMenu.classList.remove('open');
                 hamburger.classList.remove('open');
             }
         });
     });
+
+    // ——— HORIZONTAL DRAG SCROLL ———
+    const hscrollWrap  = document.querySelector('.hscroll-wrap');
+    const hscrollTrack = document.getElementById('hscroll-track');
+    if (hscrollWrap && hscrollTrack) {
+        let isDragging = false;
+        let startX, scrollLeft;
+
+        hscrollWrap.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - hscrollWrap.offsetLeft;
+            scrollLeft = hscrollWrap.scrollLeft;
+            hscrollWrap.style.cursor = 'grabbing';
+            lenis.stop(); // pause smooth scroll while dragging
+        });
+        hscrollWrap.addEventListener('mouseleave', () => {
+            if (isDragging) { isDragging = false; lenis.start(); }
+            hscrollWrap.style.cursor = 'grab';
+        });
+        hscrollWrap.addEventListener('mouseup', () => {
+            isDragging = false;
+            hscrollWrap.style.cursor = 'grab';
+            lenis.start();
+        });
+        hscrollWrap.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - hscrollWrap.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            hscrollWrap.scrollLeft = scrollLeft - walk;
+        });
+
+        // Touch support
+        hscrollWrap.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX;
+            scrollLeft = hscrollWrap.scrollLeft;
+        }, { passive: true });
+        hscrollWrap.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX;
+            hscrollWrap.scrollLeft = scrollLeft - (x - startX);
+        }, { passive: true });
+
+        // Auto-scroll hint animation on section enter
+        const hintObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Nudge scroll to hint at scrollability
+                    setTimeout(() => {
+                        hscrollWrap.scrollTo({ left: 80, behavior: 'smooth' });
+                        setTimeout(() => hscrollWrap.scrollTo({ left: 0, behavior: 'smooth' }), 600);
+                    }, 500);
+                    hintObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        hintObs.observe(hscrollWrap);
+    }
 
     // ——— PRODUCT CARD MAGNETIC HOVER ———
     document.querySelectorAll('.product-card').forEach(card => {
