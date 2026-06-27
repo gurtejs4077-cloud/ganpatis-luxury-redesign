@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals — GANPATIS</title>
+    <meta name="description" content="Explore the latest additions to Ganpatis Luxury Bridal collection.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="collection.css">
+</head>
+<body>
+    <!-- Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-center">
+            <a href="index.html" class="logo">GANPATIS</a>
+        </div>
+        <div class="nav-mega-links">
+            <div class="nav-item"><a href="instagram-collection.html" class="nav-link">Instagram Collection</a></div>
+            <div class="nav-item has-dropdown">
+                <a href="new-arrivals.html?gender=all" class="nav-link nav-link-highlight">New Arrivals</a>
+                <div class="mega-dropdown">
+                    <div class="mega-col">
+                        <a href="new-arrivals.html?gender=girls">Women</a>
+                        <a href="new-arrivals.html?gender=boys">Men</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item"><a href="#" class="nav-link">Women</a></div>
+            <div class="nav-item"><a href="#" class="nav-link">Men</a></div>
+            <div class="nav-item"><a href="#" class="nav-link">Designers</a></div>
+            <div class="nav-item"><a href="#" class="nav-link">Celebrity Closet</a></div>
+            <div class="nav-item"><a href="#" class="nav-link">Wedding Edit</a></div>
+            <div class="nav-item"><a href="#" class="nav-link nav-link-sale">Sale</a></div>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span></button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="col-hero">
+        <div class="col-hero-bg">
+            <img src="" id="na-hero-img" alt="New Arrivals">
+            <div class="col-hero-vignette"></div>
+        </div>
+        <div class="col-hero-content">
+            <p class="overline" style="color:rgba(255,255,255,0.7);letter-spacing:0.3em;">Fresh Drops</p>
+            <h1>New <em>Arrivals</em></h1>
+            
+            <div class="na-tabs">
+                <a href="new-arrivals.html?gender=all" class="na-tab" id="tab-all">All</a>
+                <a href="new-arrivals.html?gender=girls" class="na-tab" id="tab-girls">Women</a>
+                <a href="new-arrivals.html?gender=boys" class="na-tab" id="tab-boys">Men</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTER + SEARCH BAR -->
+    <section class="filter-bar-section">
+        <div class="filter-bar">
+            <div class="filter-search-wrap">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <input type="text" id="search-input" placeholder="Search new drops…" autocomplete="off">
+            </div>
+            <div class="filter-tags" id="filter-tags">
+                <button class="filter-tag active" data-filter="all">All</button>
+                <button class="filter-tag" data-filter="Lehenga">Lehenga</button>
+                <button class="filter-tag" data-filter="Sherwani">Sherwani</button>
+                <button class="filter-tag" data-filter="Suit">Suit Set</button>
+                <button class="filter-tag" data-filter="Kurta">Kurta</button>
+            </div>
+            <div class="filter-count" id="filter-count">0 items</div>
+        </div>
+    </section>
+
+    <!-- PRODUCT GRID -->
+    <section class="coll-grid-section">
+        <div class="coll-grid" id="coll-grid"></div>
+        <div class="load-more-wrap" id="load-more-wrap">
+            <button class="btn-primary btn-dark" id="load-more-btn">Load More</button>
+        </div>
+        <div class="empty-state" id="empty-state" style="display:none;">
+            <p>No new arrivals found. Try a different search.</p>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top:0;">
+        <div class="footer-bottom">
+            <p>© 2026 Ganpatis Luxury Bridal. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script src="new-arrivals.js"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap');
 
 :root {
-    --c-bg:       #fdfcfa;
+    --c-bg:       #E6DAC8;
     --c-dark:     #0e0c0a;
     --c-text:     #1c1a18;
     --c-muted:    #6b6560;
@@ -116,64 +116,162 @@ body:has(button:hover) .cursor-follower {
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
-    padding: 2rem 4rem;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
     z-index: 500;
-    transition: padding 0.5s var(--ease), background 0.5s;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 0.4s var(--ease), backdrop-filter 0.4s var(--ease);
 }
 .navbar.scrolled {
-    padding: 1.2rem 4rem;
-    background: rgba(253, 252, 250, 0.92);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--c-border);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
 }
-.navbar.dark-mode { color: #fff; }
-.navbar.dark-mode.scrolled { color: var(--c-text); }
 
-.nav-left, .nav-right {
+/* Logo row */
+.nav-center {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
-}
-.nav-link {
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
+    justify-content: center;
+    padding: 1.2rem 4rem;
+    background: transparent;
+    color: var(--c-gold);
     position: relative;
-    padding-bottom: 2px;
+    transition: background 0.4s var(--ease);
 }
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 0; height: 1px;
-    background: currentColor;
-    transition: width 0.4s var(--ease-out);
+.navbar.scrolled .nav-center {
+    background: #111;
 }
-.nav-link:hover::after { width: 100%; }
-.nav-cta {
-    padding: 0.6rem 1.4rem;
-    border: 1px solid currentColor;
-    transition: background 0.3s, color 0.3s;
-}
-.nav-cta:hover { background: var(--c-dark); color: #fff; border-color: var(--c-dark); }
 .logo {
     font-family: var(--ff-head);
     font-size: 1.9rem;
     letter-spacing: 0.2em;
     font-weight: 500;
+    color: var(--c-gold);
 }
+
+/* Mega links row */
+.nav-mega-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background 0.4s var(--ease), border-color 0.4s;
+}
+.navbar.scrolled .nav-mega-links {
+    background: #fff;
+    border-bottom: 1px solid var(--c-border);
+}
+.nav-item { position: static; }
+.nav-link {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0.85rem 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+    transition: color 0.4s var(--ease);
+    position: relative;
+}
+.navbar.scrolled .nav-link {
+    color: var(--c-text);
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 1rem; right: 1rem;
+    height: 2px;
+    background: var(--c-gold);
+    transform: scaleX(0);
+    transition: transform 0.3s var(--ease-out);
+    transform-origin: left;
+}
+.nav-item:hover > .nav-link::after { transform: scaleX(1); }
+.nav-link-highlight {
+    color: var(--c-gold);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: 600;
+}
+.nav-link-sale { color: #c16452; font-weight: 600; }
+.nav-link-sale::after { background: #c16452; }
+
+/* ============================
+   MEGA DROPDOWN
+============================ */
+.mega-dropdown {
+    position: fixed;
+    left: 0; right: 0;
+    background: #fff;
+    border-top: 2px solid var(--c-gold);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    padding: 2.5rem 6rem;
+    display: none;
+    flex-wrap: nowrap;
+    gap: 4rem;
+    z-index: 600;
+    animation: dropIn 0.22s var(--ease) forwards;
+}
+.has-dropdown:hover .mega-dropdown { display: flex; }
+.mega-dropdown--designers {
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem 4rem;
+}
+.has-dropdown:hover .mega-dropdown--designers { display: grid; }
+@keyframes dropIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.mega-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 130px;
+}
+.mega-col-heading {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--c-text);
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--c-border);
+}
+.mega-col a {
+    font-size: 0.82rem;
+    color: var(--c-muted);
+    font-weight: 400;
+    transition: color 0.2s;
+    letter-spacing: 0.02em;
+    line-height: 1.9;
+}
+.mega-col a:hover { color: var(--c-gold); }
+.mega-link-gold { color: #c16452 !important; }
+.mega-link-gold:hover { color: var(--c-gold) !important; }
+
+/* Hamburger */
 .hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
     background: none;
     border: none;
-    cursor: none;
+    cursor: pointer;
     padding: 4px;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .hamburger span {
     display: block;
@@ -194,7 +292,7 @@ body:has(button:hover) .cursor-follower {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 2rem;
     z-index: 400;
     transform: translateX(-100%);
     transition: transform 0.5s var(--ease-out);
@@ -202,11 +300,12 @@ body:has(button:hover) .cursor-follower {
 .mobile-menu.open { transform: translateX(0); }
 .mobile-menu a {
     font-family: var(--ff-head);
-    font-size: 3rem;
+    font-size: 2.2rem;
     color: #fff;
     font-weight: 400;
     letter-spacing: 0.05em;
 }
+
 
 /* ============================
    HERO
@@ -766,7 +865,7 @@ body:has(button:hover) .cursor-follower {
 }
 .lk-item.lk-tall {
     grid-row: span 2;
-    aspect-ratio: 2/3;
+    height: 100%;
 }
 .lk-item:not(.lk-tall):not(.lk-wide) { aspect-ratio: 1/1.1; }
 .lk-item.lk-wide {

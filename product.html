@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product — GANPATIS</title>
+    <meta name="description" content="Ganpatis — Product Detail">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="collection.css">
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-center">
+            <a href="index.html" class="logo">GANPATIS</a>
+        </div>
+        <div class="nav-mega-links">
+            <div class="nav-item"><a href="instagram-collection.html" class="nav-link nav-link-highlight">Instagram Collection</a></div>
+            <div class="nav-item"><a href="new-arrivals.html?gender=all" class="nav-link">New Arrivals</a></div>
+            <div class="nav-item"><a href="#" class="nav-link">Women</a></div>
+            <div class="nav-item"><a href="#" class="nav-link">Men</a></div>
+            <div class="nav-item"><a href="#" class="nav-link">Designers</a></div>
+            <div class="nav-item"><a href="#" class="nav-link">Celebrity Closet</a></div>
+            <div class="nav-item"><a href="#" class="nav-link">Wedding Edit</a></div>
+            <div class="nav-item"><a href="#" class="nav-link nav-link-sale">Sale</a></div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb-bar">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="instagram-collection.html">Instagram Collection</a>
+        <span>/</span>
+        <span id="breadcrumb-name">…</span>
+    </div>
+
+    <!-- PRODUCT DETAIL -->
+    <section class="pdp-section" id="pdp-section">
+        <!-- Left: Image Gallery -->
+        <div class="pdp-gallery">
+            <div class="pdp-thumbs" id="pdp-thumbs"></div>
+            <div class="pdp-main-img-wrap">
+                <img id="pdp-main-img" src="" alt="Product" class="pdp-main-img">
+                <div class="pdp-img-zoom-hint">Hover to zoom</div>
+            </div>
+        </div>
+
+        <!-- Right: Info -->
+        <div class="pdp-info">
+            <p class="pdp-vendor" id="pdp-vendor">Ganpatis</p>
+            <h1 class="pdp-title" id="pdp-title">Loading…</h1>
+            <p class="pdp-type" id="pdp-type"></p>
+
+            <div class="pdp-price-row">
+                <span class="pdp-price" id="pdp-price">₹ —</span>
+                <span class="pdp-price-note">MRP incl. of all taxes</span>
+            </div>
+
+            <!-- Color selector -->
+            <div class="pdp-option-group" id="pdp-colors-wrap" style="display:none;">
+                <p class="pdp-option-label">Colour: <span id="selected-color"></span></p>
+                <div class="pdp-colors" id="pdp-colors"></div>
+            </div>
+
+            <!-- Size selector -->
+            <div class="pdp-option-group" id="pdp-sizes-wrap" style="display:none;">
+                <p class="pdp-option-label">Size: <span id="selected-size"></span></p>
+                <div class="pdp-sizes" id="pdp-sizes"></div>
+            </div>
+
+            <!-- Fabric selector -->
+            <div class="pdp-option-group" id="pdp-fabrics-wrap" style="display:none;">
+                <p class="pdp-option-label">Fabric: <span id="selected-fabric"></span></p>
+                <div class="pdp-fabrics" id="pdp-fabrics"></div>
+            </div>
+
+            <!-- Description -->
+            <div class="pdp-description" id="pdp-description"></div>
+
+            <!-- Tags -->
+            <div class="pdp-tags" id="pdp-tags"></div>
+
+            <!-- CTA -->
+            <div class="pdp-cta">
+                <a href="https://ganpatis.in" target="_blank" class="btn-primary">Shop on Ganpatis.in →</a>
+                <button class="btn-ghost pdp-wishlist">♡ Save to Wishlist</button>
+            </div>
+
+            <!-- USPs -->
+            <div class="pdp-usps">
+                <div class="pdp-usp"><span>🚚</span><span>Worldwide Shipping</span></div>
+                <div class="pdp-usp"><span>🔒</span><span>Secure Payments</span></div>
+                <div class="pdp-usp"><span>✂️</span><span>Custom Sizing Available</span></div>
+                <div class="pdp-usp"><span>↩️</span><span>Easy Returns</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RELATED PRODUCTS -->
+    <section class="related-section">
+        <div class="section-header">
+            <p class="overline">You may also like</p>
+            <h2>More from the <em>Collection</em></h2>
+        </div>
+        <div class="coll-grid coll-grid--related" id="related-grid"></div>
+    </section>
+
+    <footer class="footer" style="margin-top:0;">
+        <div class="footer-bottom">
+            <p>© 2026 Ganpatis Luxury Bridal. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script src="collection.js"></script>
+    <script src="product.js"></script>
+</body>
+</html>
