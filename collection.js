@@ -120,6 +120,15 @@ async function init() {
         filtered = [...allProducts];
         renderGrid(true);
         updateCount();
+
+        // Dynamically set hero image
+        const heroImg = document.querySelector('.col-hero-bg img');
+        if (heroImg && filtered.length > 0) {
+            const bestImgProduct = filtered.find(p => p.primary_image);
+            if (bestImgProduct) {
+                heroImg.src = bestImgProduct.primary_image;
+            }
+        }
     } catch (e) {
         console.error('Failed to load inventory:', e);
     }

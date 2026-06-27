@@ -107,15 +107,6 @@ async function init() {
     if(document.getElementById('tab-all')) document.getElementById('tab-all').classList.toggle('active', gender === 'all');
     if(document.getElementById('tab-girls')) document.getElementById('tab-girls').classList.toggle('active', gender === 'girls');
     if(document.getElementById('tab-boys')) document.getElementById('tab-boys').classList.toggle('active', gender === 'boys');
-    
-    // Set hero image based on gender
-    const heroImg = document.getElementById('na-hero-img');
-    if (gender === 'boys') {
-        heroImg.src = 'https://cdn.shopify.com/s/files/1/0830/4259/9214/files/10_1_a722deb6-28c9-484b-b162-7f3e12d1b046.jpg?v=1778666391';
-    } else {
-        // women or mixed view gets the beautiful women's banner
-        heroImg.src = 'https://cdn.shopify.com/s/files/1/0830/4259/9214/files/42_5.jpg?v=1782479523'; 
-    }
 
     try {
         const res = await fetch('data extraction/ganpatis_complete_inventory.json');
@@ -135,6 +126,15 @@ async function init() {
         filtered = [...allProducts];
         renderGrid(true);
         updateCount();
+
+        // Dynamically set hero image
+        const heroImg = document.querySelector('.col-hero-bg img');
+        if (heroImg && filtered.length > 0) {
+            const bestImgProduct = filtered.find(p => p.primary_image);
+            if (bestImgProduct) {
+                heroImg.src = bestImgProduct.primary_image;
+            }
+        }
     } catch (e) {
         console.error('Failed to load inventory:', e);
     }

@@ -73,6 +73,16 @@ function applyFilters() {
     page = 0;
     renderGrid(true);
     updateCount();
+
+    // Dynamically set hero image to perfectly match the current section!
+    const heroImg = document.querySelector('.col-hero-bg img');
+    if (heroImg && filtered.length > 0) {
+        // Find the first product that has a valid primary_image
+        const bestImgProduct = filtered.find(p => p.primary_image);
+        if (bestImgProduct) {
+            heroImg.src = bestImgProduct.primary_image;
+        }
+    }
 }
 
 function renderGrid(reset = false) {
