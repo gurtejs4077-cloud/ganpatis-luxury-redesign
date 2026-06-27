@@ -80,15 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ——— MUTE TOGGLE ———
-    const muteBtn = document.getElementById('mute-btn');
-    if (muteBtn && heroVideo) {
-        muteBtn.addEventListener('click', () => {
-            heroVideo.muted = !heroVideo.muted;
-            muteBtn.textContent = heroVideo.muted ? '🔇' : '🔊';
-        });
-    }
-
     // ——— CUSTOM CURSOR ———
     const cursor   = document.getElementById('cursor');
     const follower = document.getElementById('cursor-follower');
