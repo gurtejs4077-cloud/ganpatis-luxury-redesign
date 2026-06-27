@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Edit — GANPATIS</title>
+    <meta name="description" content="The Ganpatis Wedding Edit — curated bridal and groom looks for every wedding ceremony.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://ganpatis.in">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="collection.css">
+    <style>
+        /* Wedding Edit special header accent */
+        .col-hero-bg img { filter: brightness(0.5); }
+        .wedding-tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid var(--c-gold);
+            background: var(--c-cream);
+            padding: 0 3rem;
+        }
+        .wedding-tab {
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--c-muted);
+            cursor: pointer;
+            border: none;
+            background: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: color 0.3s, border-color 0.3s;
+            font-family: var(--ff-body);
+        }
+        .wedding-tab.active {
+            color: var(--c-gold);
+            border-bottom-color: var(--c-gold);
+        }
+        .wedding-tab:hover { color: var(--c-text); }
+    </style>
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+        <!-- Minimal Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-left"></div>
+        <div class="nav-center">
+            <a href="index.html" class="logo">GANPATIS</a>
+        </div>
+        <button class="nav-explore-btn" id="nav-explore-btn" aria-expanded="false" aria-controls="nav-panel" aria-label="Explore collections">
+            <span class="explore-icon" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            Explore
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    
+
+    <!-- HERO -->
+    <section class="col-hero">
+        <div class="col-hero-bg">
+            <img src="https://ganpatis.in/cdn/shop/files/39_2.jpg?v=1782479377&width=1600" id="wedding-hero-img" alt="Wedding Edit" loading="eager">
+            <div class="col-hero-vignette"></div>
+        </div>
+        <div class="col-hero-content">
+            <p class="col-hero-tag">Bride &nbsp;•&nbsp; Groom &nbsp;•&nbsp; Family</p>
+            <h1>Wedding <em>Edit</em></h1>
+            <p class="col-hero-sub">Every ceremony, every look — curated for the bride, groom, bridesmaids, groomsmen and the entire wedding family.</p>
+        </div>
+    </section>
+
+    <!-- GENDER TABS -->
+    <div class="wedding-tabs">
+        <button class="wedding-tab active" id="tab-women" data-gender="women">Women's Bridal</button>
+        <button class="wedding-tab" id="tab-men" data-gender="men">Men's Sherwani</button>
+        <button class="wedding-tab" id="tab-all" data-gender="all">All Looks</button>
+    </div>
+
+    <!-- FILTER BAR -->
+    <section class="filter-bar-section">
+        <div class="filter-bar">
+            <div class="filter-search-wrap">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <input type="text" id="search-input" placeholder="Search wedding looks…" autocomplete="off">
+            </div>
+            <div class="filter-tags" id="filter-tags">
+                <button class="filter-tag active" data-filter="all">All</button>
+                <button class="filter-tag" data-filter="bridal">Bridal</button>
+                <button class="filter-tag" data-filter="bridesmaid">Bridesmaid</button>
+                <button class="filter-tag" data-filter="lehenga">Lehenga</button>
+                <button class="filter-tag" data-filter="saree">Saree</button>
+                <button class="filter-tag" data-filter="gown">Gown</button>
+                <button class="filter-tag" data-filter="sherwani">Sherwani</button>
+                <button class="filter-tag" data-filter="kurta">Kurta Set</button>
+            </div>
+            <div class="filter-count" id="filter-count">0 looks</div>
+        </div>
+    </section>
+
+    <!-- PRODUCT GRID -->
+    <section class="coll-grid-section">
+        <div class="coll-grid" id="coll-grid"></div>
+        <div class="load-more-wrap" id="load-more-wrap">
+            <button class="btn-primary btn-dark" id="load-more-btn">Load More</button>
+        </div>
+        <div class="empty-state" id="empty-state" style="display:none;">
+            <p>No wedding looks found. Try a different search or tab.</p>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top:0;">
+        <div class="footer-bottom">
+            <p>© 2026 Ganpatis Luxury Bridal. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+        <script src="wedding-edit.js" defer></script>
+    <script src="nav.js" defer></script>
+</body>
+</html>

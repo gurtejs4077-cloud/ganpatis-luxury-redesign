@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale — GANPATIS</title>
+    <meta name="description" content="Ganpatis Sale — limited-time offers on luxury bridal couture, lehengas, sarees and jewellery.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://ganpatis.in">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="collection.css">
+    <style>
+        /* Sale-specific accent: red/coral badge and hero tint */
+        .col-hero-bg img { filter: brightness(0.45); }
+        .sale-banner {
+            background: #c16452;
+            color: #fff;
+            text-align: center;
+            padding: 0.75rem 2rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .sale-banner span {
+            display: inline-block;
+            margin: 0 1.5rem;
+        }
+        .sale-hero-tag { color: #c16452 !important; }
+        /* Override nav-link-sale colour on this page */
+        .nav-link-sale { font-weight: 700 !important; }
+        /* Sale product-tile discount badge */
+        .sale-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #c16452;
+            color: #fff;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 0.35rem 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Announcement bar -->
+    <div class="sale-banner" id="sale-banner">
+        <span>🔥 Limited Time Offer</span>
+        <span>Exclusive Prices on Luxury Bridal Couture</span>
+        <span>While Stocks Last</span>
+    </div>
+
+        <!-- Minimal Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-left"></div>
+        <div class="nav-center">
+            <a href="index.html" class="logo">GANPATIS</a>
+        </div>
+        <button class="nav-explore-btn" id="nav-explore-btn" aria-expanded="false" aria-controls="nav-panel" aria-label="Explore collections">
+            <span class="explore-icon" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            Explore
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    
+
+    <!-- HERO -->
+    <section class="col-hero">
+        <div class="col-hero-bg">
+            <img src="https://ganpatis.in/cdn/shop/files/Premium_collection.png?v=1779277873&width=1600" id="sale-hero-img" alt="Sale" loading="eager">
+            <div class="col-hero-vignette"></div>
+        </div>
+        <div class="col-hero-content">
+            <p class="col-hero-tag sale-hero-tag">Limited Time &nbsp;•&nbsp; Exclusive Prices</p>
+            <h1>The <em>Sale</em> Edit</h1>
+            <p class="col-hero-sub">Handpicked luxury pieces at exceptional prices — celebrate every occasion without compromise. While stocks last.</p>
+        </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <section class="filter-bar-section">
+        <div class="filter-bar">
+            <div class="filter-search-wrap">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <input type="text" id="search-input" placeholder="Search sale items…" autocomplete="off">
+            </div>
+            <div class="filter-tags" id="filter-tags">
+                <button class="filter-tag active" data-filter="all">All Sale</button>
+                <button class="filter-tag" data-filter="Lehenga">Lehenga</button>
+                <button class="filter-tag" data-filter="Saree">Saree</button>
+                <button class="filter-tag" data-filter="Anarkali">Anarkali</button>
+                <button class="filter-tag" data-filter="Kurta">Kurta</button>
+                <button class="filter-tag" data-filter="wedding">Wedding</button>
+            </div>
+            <div class="filter-count" id="filter-count">0 items</div>
+        </div>
+    </section>
+
+    <!-- PRODUCT GRID -->
+    <section class="coll-grid-section">
+        <div class="coll-grid" id="coll-grid"></div>
+        <div class="load-more-wrap" id="load-more-wrap">
+            <button class="btn-primary" style="background:#c16452;border-color:#c16452;" id="load-more-btn">Load More Sale Items</button>
+        </div>
+        <div class="empty-state" id="empty-state" style="display:none;">
+            <p>No sale items found for this filter. Try searching differently.</p>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top:0;">
+        <div class="footer-bottom">
+            <p>© 2026 Ganpatis Luxury Bridal. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+        <script src="sale.js" defer></script>
+    <script src="nav.js" defer></script>
+</body>
+</html>

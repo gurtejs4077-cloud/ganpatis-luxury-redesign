@@ -33,19 +33,30 @@ function createTile(product) {
     a.setAttribute('data-id', product.id);
 
     const hasAlt = product.all_images && product.all_images.length > 1;
-    const badge = isNew(product) ? '<div class="product-tile-badge">New</div>' : '';
+    const badge = isNew(product) ? '<div class="product-tile-badge">Best Seller</div>' : '';
+
+    let desc = product.body_html || product.description || '';
+    desc = desc.replace(/<[^>]*>?/gm, '').trim();
+    if (desc.length > 70) desc = desc.substring(0, 70) + '...';
 
     a.innerHTML = `
-        <div class="product-tile-img-wrap">
-            <img class="product-tile-img" src="${product.primary_image || ''}" alt="${product.title}" loading="lazy">
-            ${hasAlt ? `<img class="product-tile-img-alt" src="${product.all_images[1]}" alt="${product.title}" loading="lazy">` : ''}
-            ${badge}
-            <div class="product-tile-overlay"><span>View Look \u2192</span></div>
-        </div>
-        <div class="product-tile-info">
-            <p class="product-tile-type">${product.product_type || ''}</p>
-            <p class="product-tile-name">${product.title}</p>
-            <p class="product-tile-price"><strong>${formatPrice(product.variants)}</strong></p>
+        <div class="product-tile-inner">
+            <div class="product-tile-img-wrap">
+                <img class="product-tile-img" src="${product.primary_image || ''}" alt="${product.title}" loading="lazy">
+                ${hasAlt ? `<img class="product-tile-img-alt" src="${product.all_images[1]}" alt="${product.title}" loading="lazy">` : ''}
+                ${badge}
+                <div class="product-tile-brand-icon">GANPATIS</div>
+                <div class="product-tile-overlay"><span>View Look \u2192</span></div>
+            </div>
+            <div class="product-tile-info">
+                <p class="product-tile-name">${product.title}</p>
+                <p class="product-tile-subtitle">${product.product_type || 'Luxury Couture'}</p>
+                <p class="product-tile-desc">${desc}</p>
+                <div class="card-bottom-row">
+                    <span class="price-pill">${formatPrice(product.variants)}</span>
+                    <span class="buy-now-pill">Buy Now <span class="buy-icon">&#x2197;</span></span>
+                </div>
+            </div>
         </div>
     `;
     return a;

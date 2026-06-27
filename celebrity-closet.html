@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrity Closet — GANPATIS</title>
+    <meta name="description" content="Explore Ganpatis Celebrity Closet — iconic looks worn by Bollywood and celebrity brides.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://ganpatis.in">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="collection.css">
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+        <!-- Minimal Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-left"></div>
+        <div class="nav-center">
+            <a href="index.html" class="logo">GANPATIS</a>
+        </div>
+        <button class="nav-explore-btn" id="nav-explore-btn" aria-expanded="false" aria-controls="nav-panel" aria-label="Explore collections">
+            <span class="explore-icon" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            Explore
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    
+
+    <!-- HERO -->
+    <section class="col-hero">
+        <div class="col-hero-bg">
+            <img src="https://ganpatis.in/cdn/shop/files/Ganpati_s_53.png?v=1779276161&width=1600" id="celeb-hero-img" alt="Celebrity Closet" loading="eager">
+            <div class="col-hero-vignette"></div>
+        </div>
+        <div class="col-hero-content">
+            <p class="col-hero-tag">Icons &nbsp;•&nbsp; Style &nbsp;•&nbsp; Legacy</p>
+            <h1>Celebrity <em>Closet</em></h1>
+            <p class="col-hero-sub">Bollywood's most iconic bridal looks, curated from our celebrity archive. Each look is a story of craftsmanship and couture.</p>
+        </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <section class="filter-bar-section">
+        <div class="filter-bar">
+            <div class="filter-search-wrap">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <input type="text" id="search-input" placeholder="Search celebrity looks…" autocomplete="off">
+            </div>
+            <div class="filter-tags" id="filter-tags">
+                <button class="filter-tag active" data-filter="all">All Looks</button>
+                <button class="filter-tag" data-filter="Lehenga">Lehenga</button>
+                <button class="filter-tag" data-filter="Saree">Saree</button>
+                <button class="filter-tag" data-filter="Anarkali">Anarkali</button>
+                <button class="filter-tag" data-filter="Gown">Gown</button>
+                <button class="filter-tag" data-filter="bridal">Bridal</button>
+            </div>
+            <div class="filter-count" id="filter-count">0 looks</div>
+        </div>
+    </section>
+
+    <!-- PRODUCT GRID -->
+    <section class="coll-grid-section">
+        <div class="coll-grid" id="coll-grid"></div>
+        <div class="load-more-wrap" id="load-more-wrap">
+            <button class="btn-primary btn-dark" id="load-more-btn">Load More</button>
+        </div>
+        <div class="empty-state" id="empty-state" style="display:none;">
+            <p>No celebrity looks found. Try a different search.</p>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top:0;">
+        <div class="footer-bottom">
+            <p>© 2026 Ganpatis Luxury Bridal. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+        <script src="celebrity-closet.js" defer></script>
+    <script src="nav.js" defer></script>
+</body>
+</html>

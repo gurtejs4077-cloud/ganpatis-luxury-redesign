@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,72 +15,16 @@
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursor-follower"></div>
     <nav class="navbar scrolled" id="navbar">
+        <div class="nav-left"></div>
         <div class="nav-center">
             <a href="index.html" class="logo">GANPATIS</a>
         </div>
-        <div class="nav-mega-links">
-            <div class="nav-item"><a href="instagram-collection.html" class="nav-link nav-link-highlight">Instagram Collection</a></div>
-            <div class="nav-item"><a href="new-arrivals.html?gender=all" class="nav-link">New Arrivals</a></div>
-            <div class="nav-item"><a href="#" class="nav-link">Women</a></div>
-                        <!-- MEN -->
-            <div class="nav-item has-dropdown">
-                <a href="men.html" class="nav-link">Men</a>
-                <div class="mega-dropdown mega-dropdown--wide">
-                    <div class="mega-col">
-                        <p class="mega-col-heading">Style</p>
-                        <a href="men.html?filter=shirt">Shirt &amp; T-Shirt</a>
-                        <a href="men.html?filter=kurta">Kurta Set</a>
-                        <a href="men.html?filter=nehru">Nehru Jacket Set</a>
-                        <a href="men.html?filter=sherwani">Sherwani</a>
-                        <a href="men.html?filter=suit">Suit</a>
-                        <a href="men.html?filter=tuxedo">Tuxedo</a>
-                        <a href="men.html?filter=bandhgala">Bandhgala</a>
-                        <a href="men.html?filter=jacket">Jacket</a>
-                        <a href="men.html?filter=indo">Indo Western</a>
-                    </div>
-                    <div class="mega-col">
-                        <p class="mega-col-heading">Occasion</p>
-                        <a href="men.html?filter=haldi" class="mega-link-gold">Haldi</a>
-                        <a href="men.html?filter=mehendi" class="mega-link-gold">Mehendi</a>
-                        <a href="men.html?filter=cocktail">Cocktail</a>
-                        <a href="men.html?filter=wedding">Wedding</a>
-                        <a href="men.html?filter=reception">Reception</a>
-                        <a href="men.html?filter=casual">Casual</a>
-                    </div>
-                    <div class="mega-col">
-                        <p class="mega-col-heading">Wedding Edit</p>
-                        <a href="men.html?filter=groom">Groom</a>
-                        <a href="men.html?filter=groomsmen" class="mega-link-gold">Groomsmen</a>
-                    </div>
-                    <div class="mega-col">
-                        <p class="mega-col-heading">Accessories</p>
-                        <a href="men.html?filter=brooch">Brooch</a>
-                        <a href="men.html?filter=buttons">Buttons</a>
-                        <a href="men.html?filter=cufflinks">Cufflinks</a>
-                        <a href="men.html?filter=footwear">Footwear</a>
-                    </div>
-                </div>
-            </div>
-                        <!-- DESIGNERS -->
-            <div class="nav-item has-dropdown">
-                <a href="designers.html" class="nav-link">Designers</a>
-                <div class="mega-dropdown">
-                    <div class="mega-col">
-                        <p class="mega-col-heading">Featured</p>
-                        <a href="designers.html?filter=label-sanya-gulati">Label Sanya Gulati</a>
-                        <a href="designers.html?filter=mandira-wirk">Mandira Wirk</a>
-                        <a href="designers.html?filter=matsya">Matsya</a>
-                        <a href="designers.html?filter=nero">Nero</a>
-                        <a href="designers.html?filter=ohaila-khan">Ohaila Khan</a>
-                        <a href="designers.html?filter=paarsh">Paarsh</a>
-                        <a href="designers.html" class="mega-link-gold">View All Designers</a>
-                    </div>
-                </div>
-            </div>
-            <div class="nav-item"><a href="#" class="nav-link">Celebrity Closet</a></div>
-            <div class="nav-item"><a href="#" class="nav-link">Wedding Edit</a></div>
-            <div class="nav-item"><a href="#" class="nav-link nav-link-sale">Sale</a></div>
-        </div>
+        <button class="nav-explore-btn" id="nav-explore-btn" aria-expanded="false" aria-controls="nav-panel" aria-label="Explore collections">
+            <span class="explore-icon" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            Explore
+        </button>
     </nav>
 
     <!-- BREADCRUMB -->
@@ -89,7 +33,7 @@
         <span>/</span>
         <a href="instagram-collection.html">Instagram Collection</a>
         <span>/</span>
-        <span id="breadcrumb-name">â€¦</span>
+        <span id="breadcrumb-name">…</span>
     </div>
 
     <!-- PRODUCT DETAIL -->
@@ -106,11 +50,11 @@
         <!-- Right: Info -->
         <div class="pdp-info">
             <p class="pdp-vendor" id="pdp-vendor">Ganpatis</p>
-            <h1 class="pdp-title" id="pdp-title">Loadingâ€¦</h1>
+            <h1 class="pdp-title" id="pdp-title">Loading…</h1>
             <p class="pdp-type" id="pdp-type"></p>
 
             <div class="pdp-price-row">
-                <span class="pdp-price" id="pdp-price">â‚¹ â€”</span>
+                <span class="pdp-price" id="pdp-price">₹ —</span>
                 <span class="pdp-price-note">MRP incl. of all taxes</span>
             </div>
 
@@ -122,7 +66,10 @@
 
             <!-- Size selector -->
             <div class="pdp-option-group" id="pdp-sizes-wrap" style="display:none;">
-                <p class="pdp-option-label">Size: <span id="selected-size"></span></p>
+                <div class="pdp-option-header">
+                    <p class="pdp-option-label">Size: <span id="selected-size"></span></p>
+                    <button class="btn-text size-advisor-trigger" id="size-advisor-btn">Find My Size</button>
+                </div>
                 <div class="pdp-sizes" id="pdp-sizes"></div>
             </div>
 
@@ -140,16 +87,16 @@
 
             <!-- CTA -->
             <div class="pdp-cta">
-                <a href="https://ganpatis.in" target="_blank" class="btn-primary">Shop on Ganpatis.in â†’</a>
-                <button class="btn-ghost pdp-wishlist">â™¡ Save to Wishlist</button>
+                <a href="https://ganpatis.in" target="_blank" class="btn-primary">Shop on Ganpatis.in &rarr;</a>
+                <button class="btn-ghost pdp-wishlist">&#9825; Save to Wishlist</button>
             </div>
 
             <!-- USPs -->
             <div class="pdp-usps">
-                <div class="pdp-usp"><span>ðŸšš</span><span>Worldwide Shipping</span></div>
-                <div class="pdp-usp"><span>ðŸ”’</span><span>Secure Payments</span></div>
-                <div class="pdp-usp"><span>âœ‚ï¸</span><span>Custom Sizing Available</span></div>
-                <div class="pdp-usp"><span>â†©ï¸</span><span>Easy Returns</span></div>
+                <div class="pdp-usp"><span>&#128666;</span><span>Worldwide Shipping</span></div>
+                <div class="pdp-usp"><span>&#128274;</span><span>Secure Payments</span></div>
+                <div class="pdp-usp"><span>&#9986;&#65039;</span><span>Custom Sizing Available</span></div>
+                <div class="pdp-usp"><span>&#8617;&#65039;</span><span>Easy Returns</span></div>
             </div>
         </div>
     </section>
@@ -174,10 +121,54 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
     <script src="collection.js"></script>
+    <script src="script.js"></script>
+    <script src="nav.js"></script>
     <script src="product.js"></script>
-<script src="mobile-menu.js"></script>`r`n</body>
+
+    <!-- SIZE ADVISOR MODAL -->
+    <div class="size-advisor-overlay" id="size-advisor-overlay"></div>
+    <div class="size-advisor-drawer" id="size-advisor-drawer">
+        <div class="sa-header">
+            <h3>Size Advisor</h3>
+            <button class="sa-close" id="sa-close">&times;</button>
+        </div>
+        <div class="sa-body">
+            <p class="sa-desc">Enter your exact measurements to find your perfect fit in Ganpatis Couture.</p>
+            
+            <div class="sa-unit-toggle">
+                <button class="sa-unit-btn active" data-unit="in">Inches</button>
+                <button class="sa-unit-btn" data-unit="cm">CM</button>
+            </div>
+
+            <div class="sa-form">
+                <div class="sa-input-group">
+                    <label for="sa-bust">Bust</label>
+                    <input type="number" id="sa-bust" placeholder="e.g. 34" step="0.5">
+                    <span class="sa-unit-label">in</span>
+                </div>
+                <div class="sa-input-group">
+                    <label for="sa-waist">Waist</label>
+                    <input type="number" id="sa-waist" placeholder="e.g. 26" step="0.5">
+                    <span class="sa-unit-label">in</span>
+                </div>
+                <div class="sa-input-group">
+                    <label for="sa-hips">Hips</label>
+                    <input type="number" id="sa-hips" placeholder="e.g. 36" step="0.5">
+                    <span class="sa-unit-label">in</span>
+                </div>
+                
+                <button class="btn-primary sa-calc-btn" id="sa-calc-btn">Find My Fit</button>
+            </div>
+
+            <div class="sa-result" id="sa-result" style="display:none;">
+                <p>Your Recommended Size:</p>
+                <h2 id="sa-recommended-size">M</h2>
+                <button class="btn-ghost sa-apply-btn" id="sa-apply-btn">Apply Size</button>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
 
 

@@ -255,6 +255,103 @@ async function initPdp() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', initPdp);
+// --- SIZE ADVISOR LOGIC ---
+function initSizeAdvisor() {
+    const trigger = document.getElementById('size-advisor-btn');
+    const overlay = document.getElementById('size-advisor-overlay');
+    const drawer = document.getElementById('size-advisor-drawer');
+    const closeBtn = document.getElementById('sa-close');
+    const unitBtns = document.querySelectorAll('.sa-unit-btn');
+    const calcBtn = document.getElementById('sa-calc-btn');
+    const applyBtn = document.getElementById('sa-apply-btn');
+    const resultDiv = document.getElementById('sa-result');
+    const resultText = document.getElementById('sa-recommended-size');
+    const inputs = document.querySelectorAll('.sa-input-group input');
+    const labels = document.querySelectorAll('.sa-unit-label');
+    
+    let currentUnit = 'in'; // 'in' or 'cm'
 
+    if (!trigger || !drawer) return;
+
+    function openAdvisor() {
+        overlay.classList.add('active');
+        drawer.classList.add('active');
+    }
+    
+    function closeAdvisor() {
+        overlay.classList.remove('active');
+        drawer.classList.remove('active');
+    }
+
+    trigger.addEventListener('click', openAdvisor);
+    if(closeBtn) closeBtn.addEventListener('click', closeAdvisor);
+    overlay.addEventListener('click', closeAdvisor);
+
+    unitBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if (e.target.classList.contains('active')) return;
+            
+            unitBtns.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            currentUnit = e.target.getAttribute('data-unit');
+            
+            // update labels
+            labels.forEach(lbl => lbl.textContent = currentUnit);
+            
+            // Convert existing values if any
+            inputs.forEach(input => {
+                if(input.value) {
+                    let val = parseFloat(input.value);
+                    if (currentUnit === 'cm') {
+                        input.value = (val * 2.54).toFixed(1);
+                    } else {
+                        input.value = (val / 2.54).toFixed(1);
+                    }
+                }
+            });
+        });
+    });
+
+    calcBtn.addEventListener('click', () => {
+        const bustVal = parseFloat(document.getElementById('sa-bust').value);
+        if(!bustVal) return alert('Please enter your Bust measurement.');
+        
+        // Convert to inches for standard calculation
+        const bustInches = currentUnit === 'cm' ? bustVal / 2.54 : bustVal;
+        
+        let recSize = 'M';
+        if (bustInches < 33) recSize = 'XS';
+        else if (bustInches >= 33 && bustInches < 35) recSize = 'S';
+        else if (bustInches >= 35 && bustInches < 37) recSize = 'M';
+        else if (bustInches >= 37 && bustInches < 39) recSize = 'L';
+        else if (bustInches >= 39 && bustInches < 41) recSize = 'XL';
+        else recSize = 'XXL';
+
+        resultText.textContent = recSize;
+        resultDiv.style.display = 'block';
+    });
+
+    applyBtn.addEventListener('click', () => {
+        const size = resultText.textContent;
+        // Find the size option and click it
+        const sizeBtns = document.querySelectorAll('#pdp-sizes .pdp-option');
+        let found = false;
+        sizeBtns.forEach(b => {
+            if (b.textContent.trim().toUpperCase() === size.toUpperCase()) {
+                b.click();
+                found = true;
+            }
+        });
+        if (!found && sizeBtns.length > 0) {
+            // fallback if size doesn't match exactly
+            sizeBtns[0].click();
+        }
+        closeAdvisor();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initPdp();
+    initSizeAdvisor();
+});
 })();
